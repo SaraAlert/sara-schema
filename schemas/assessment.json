@@ -1,0 +1,64 @@
+{
+  "$id": "https://saraalert.mitre.org/assessment_schema.json",
+  "title": "Assessment",
+  "description": "A patient asssessment",
+  "type": "object",
+  "required": [
+    "threshold_condition_hash",
+    "patient_submission_token",
+    "reported_symptoms_array"
+  ],
+  "properties": {
+    "threshold_condition_hash": {
+      "type": "string",
+      "description": "A way for an assessment to reference the set of symptoms and expected values that are associated with the assessment",
+      "pattern": "[a-f0-9]{64}"
+    },
+    "patient_submission_token": {
+      "type": "string",
+      "description": "Unique token used to validate existence of a patient for this assessement's submission.",
+      "pattern": "[a-f0-9]{40}"
+    }
+  },
+  "reported_symptoms_array": {
+    "type": "array",
+    "description": "An array of symptoms and their values and types.",
+    "items": {
+      "type": "object",
+      "required": [
+        "name",
+        "value",
+        "label",
+        "note"
+      ],
+      "properties": {
+        "name": {
+          "description": "The name of the symptom",
+          "type": "string"
+        },
+        "value": {
+          "description": "The reported condition of the symptom from the patient",
+          "type": ["string", null]
+        },
+        "type": {
+          "description": "The internal application symptom type",
+          "type": { "enum": [
+            "BoolSymptom",
+            "IntSymptom",
+            "FloatSymptom"
+          ] }
+        },
+        "label": {
+          "description": "The formatted name for printing of the symptom",
+          "type": "string"
+        },
+        "notes": {
+          "description": "Extended description of the symptom",
+          "type": ["string", null]
+        }
+      }
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  }
+}
