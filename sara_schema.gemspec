@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.email = ['kfagan@mitre.org']
   gem.homepage = 'https://github.com/SaraAlert/sara-schema'
   gem.summary = 'Ruby integration for the Sara JSON Schema'
-  gem.license = 'Apache License 2.0'
+  gem.license = 'Apache-2.0'
   gem.require_paths = ['lib']
   gem.files = Dir['README.md', 'LICENSE', '{lib,schemas}/**/*']
   gem.add_dependency 'json_schemer', '~> 0.2'
