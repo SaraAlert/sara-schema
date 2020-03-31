@@ -13,3 +13,8 @@ task :test do
     require_relative file
   end
 end
+
+desc 'Build and publish the gem'
+task publish: :build do
+  system("gem push pkg/sara-schema-#{SaraSchema::VERSION}.gem")
+end
