@@ -4,13 +4,14 @@ require 'test_helper'
 
 class AssessmentTest < Minitest::Test
   def setup
-    data_structure_name = class_name.to_s.gsub('Test', '').underscore
-    data_structure_path = File.join(DATA_STRUCTURE_PATH, 'schema', data_structure_name) << '.json'
-    @data_structure = JSON.parse(File.read(data_structure_path))
+    @data_structures = Dir[DATA_STRUCTURE_PATH + '/**/*'].drop(1)
   end
 
   def test_valid
-    assert SaraSchema::Validator.validate(:assessment, @data_structure)
+    @data_structures.each do |data_structure|
+      data = JSON.parse(File.read(data_structure))
+      assert SaraSchema::Validator.validate(:assessment, data)
+    end
   end
 
   def test_invalid
