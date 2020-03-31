@@ -6,9 +6,7 @@
   "additionalProperties": false,
   "required": [
     "threshold_condition_hash",
-    "patient_submission_token",
-    "reported_symptoms_array",
-    "experiencing_symptoms"
+    "patient_submission_token"
   ],
   "properties": {
     "threshold_condition_hash": {
