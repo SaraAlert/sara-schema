@@ -8,6 +8,9 @@
     "threshold_condition_hash",
     "patient_submission_token"
   ],
+  "dependencies": {
+    "experiencing_symptoms": { "not": { "required": ["reported_symptoms_array"] } }
+  },
   "properties": {
     "threshold_condition_hash": {
       "type": "string",

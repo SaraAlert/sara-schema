@@ -8,9 +8,14 @@ class AssessmentTest < Minitest::Test
   end
 
   def test_valid
+    require 'pry'; binding.pry
     @data_structures.each do |data_structure|
       data = JSON.parse(File.read(data_structure))
-      assert SaraSchema::Validator.validate(:assessment, data)
+      if data_structure.include?('invalid')
+        assert !SaraSchema::Validator.validate(:assessment, data)
+      else
+        assert SaraSchema::Validator.validate(:assessment, data)
+      end
     end
   end
 
