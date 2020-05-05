@@ -59,7 +59,7 @@
             "type": "string",
             "enum": [
               "BoolSymptom",
-              "IntSymptom",
+              "IntegerSymptom",
               "FloatSymptom"
             ]
           },
