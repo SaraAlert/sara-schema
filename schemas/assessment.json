@@ -30,7 +30,6 @@
       "type": "array",
       "description": "An array of symptoms and their values and types.",
       "minItems": 1,
-      "maxItems": 5,
       "items": {
         "type": "object",
         "additionalProperties": false,
