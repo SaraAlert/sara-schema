@@ -2,27 +2,13 @@
   "threshold_condition_hash":"44707d0e90fd17196ea91a6efc6b67106b59484eccb10b045c3794673e29c134",
   "reported_symptoms_array": [
     {
-      "name": "cough",
-      "value": null,
-      "type": "BoolSymptom",
-      "label": "Cough",
-      "notes": null
-    },
-    {
-      "name": "difficulty-breathing",
-      "value": null,
-      "type": "BoolSymptom",
-      "label": "Difficulty Breathing",
-      "notes": null
-    },
-    {
       "name": "fever",
-      "value": null,
+      "value": true,
       "type": "BoolSymptom",
       "label": "Fever",
       "notes": "Feeling feverish or have a measured temperature at or above 100.4°F/38°C"
     }
   ],
   "patient_submission_token":"379fc17f60bfba1933c2961ffc6a60e554a8347b",
-  "experiencing_symptoms": null
+  "experiencing_symptoms": true
 }

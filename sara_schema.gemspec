@@ -17,7 +17,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'json_schemer', '~> 0.2'
   gem.add_development_dependency 'activesupport'
   gem.add_development_dependency 'colorize'
-  gem.add_development_dependency 'gem-release'
   gem.add_development_dependency 'minitest'
   gem.add_development_dependency 'pry-remote'
   gem.add_development_dependency 'rake'
