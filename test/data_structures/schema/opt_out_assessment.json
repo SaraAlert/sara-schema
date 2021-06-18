@@ -1,8 +1,8 @@
 {
-  "response_status": null,
+  "response_status": "opt_out",
   "error_code": null,
   "threshold_condition_hash": null,
   "reported_symptoms_array": null,
   "experiencing_symptoms": null,
-  "patient_submission_token": null
+  "patient_submission_token": "FNf9193a1e62d1333a20a84ef183e751df"
 }
