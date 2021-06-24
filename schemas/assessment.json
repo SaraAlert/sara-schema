@@ -51,7 +51,8 @@
           "value",
           "type",
           "label",
-          "notes"
+          "notes",
+          "required"
         ],
         "properties": {
           "name": {
@@ -78,6 +79,10 @@
           "notes": {
             "description": "Extended description of the symptom",
             "type": ["string", "null"]
+          },
+          "required": {
+            "description": "The symptom's importance when determining if an assessment is symptomatic",
+            "type": "boolean"
           }
         }
       }
