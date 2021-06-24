@@ -1,5 +1,5 @@
 {
-  "$id": "https://saraalert.mitre.org/assessment_schema.json",
+  "$id": "https://raw.githubusercontent.com/SaraAlert/sara-schema/master/schemas/assessment.json",
   "title": "Assessment",
   "description": "A patient asssessment root schema",
   "type": "object",
@@ -36,7 +36,7 @@
       ]
     },
     "experiencing_symptoms": {
-      "description": "Represents an assessment response over voice.",
+      "description": "Represents an assessment response over voice or SMS.",
       "type": ["boolean", "null"]
     },
     "reported_symptoms_array": {
