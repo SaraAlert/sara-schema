@@ -28,12 +28,7 @@
     },
     "patient_submission_token": {
       "description": "Unique token used to validate existence of a patient for this assessement's submission. Supports old 40 character token, new 10 character tokens, and 34 character execution flow IDs",
-      "type": ["string", "null"],
-      "anyOf": [
-        { "pattern": "^[a-f0-9]{40}$" },
-        { "pattern": "^[a-zA-Z0-9_-]{10}$" },
-        { "pattern": "^FN[a-f0-9]{32}$" }
-      ]
+      "type": ["string", "null"]
     },
     "experiencing_symptoms": {
       "description": "Represents an assessment response over voice or SMS.",
