@@ -10,7 +10,7 @@ class AssessmentTest < Minitest::Test
   def test_valid
     @data_structures.each do |data_structure|
       data = JSON.parse(File.read(data_structure))
-      assert SaraSchema::Validator.validate(:assessment, data)
+      assert SaraSchema::Validator.validate(:assessment, data), data_structure
     end
   end
 

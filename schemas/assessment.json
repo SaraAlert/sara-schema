@@ -1,34 +1,42 @@
 {
-  "$id": "https://saraalert.mitre.org/assessment_schema.json",
+  "$id": "https://raw.githubusercontent.com/SaraAlert/sara-schema/master/schemas/assessment.json",
   "title": "Assessment",
   "description": "A patient asssessment root schema",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "response_status",
+    "error_code",
     "threshold_condition_hash",
+    "reported_symptoms_array",
+    "experiencing_symptoms",
     "patient_submission_token"
   ],
   "properties": {
+    "response_status": {
+      "description": "Twilio response status information and codes, if present",
+      "enum": [ "opt_out", "opt_in", "no_answer_voice", "no_answer_sms", "error_voice", "error_sms", "max_retries_sms", "max_retries_voice", "success_sms", "success_voice", null]
+    },
+    "error_code": {
+      "description": "A Twilio error code",
+      "type": ["null", "string"]
+    },
     "threshold_condition_hash": {
-      "type": "string",
       "description": "A way for an assessment to reference the set of symptoms and expected values that are associated with the assessment",
+      "type": ["string", "null"],
       "pattern": "[a-f0-9]{64}"
     },
     "patient_submission_token": {
-      "type": "string",
-      "description": "Unique token used to validate existence of a patient for this assessement's submission.",
-      "pattern": "[a-f0-9]{40}"
+      "description": "Unique token used to validate existence of a patient for this assessement's submission. Supports old 40 character token, new 10 character tokens, and 34 character execution flow IDs",
+      "type": ["string", "null"]
     },
     "experiencing_symptoms": {
-      "description": "Represents an assessment response over voice.",
-      "anyOf": [
-        { "type": "boolean" },
-        { "type": "null" }
-      ]
+      "description": "Represents an assessment response over voice or SMS.",
+      "type": ["boolean", "null"]
     },
     "reported_symptoms_array": {
-      "type": "array",
       "description": "An array of symptoms and their values and types.",
+      "type": ["array", "null"],
       "minItems": 1,
       "items": {
         "type": "object",
@@ -38,7 +46,8 @@
           "value",
           "type",
           "label",
-          "notes"
+          "notes",
+          "required"
         ],
         "properties": {
           "name": {
@@ -47,11 +56,7 @@
           },
           "value": {
             "description": "The reported condition of the symptom from the patient",
-            "anyOf": [
-              { "type": "boolean" },
-              { "type": "number" },
-              { "type": "null" }
-            ]
+            "type": ["boolean", "number", "null"]
           },
           "type": {
             "description": "The internal application symptom type",
@@ -68,10 +73,11 @@
           },
           "notes": {
             "description": "Extended description of the symptom",
-            "anyOf": [
-              { "type": "string" },
-              { "type": "null" }
-            ]
+            "type": ["string", "null"]
+          },
+          "required": {
+            "description": "The symptom's importance when determining if an assessment is symptomatic",
+            "type": "boolean"
           }
         }
       }
